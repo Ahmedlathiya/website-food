@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/restDashboard.css">
+</head>
+
+<body>
+
+    <!-- Modal Start  -->
+    <div class="container">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#exampleModalCenter">
+            Add Item
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" class="form-control" placeholder="Item Name" id="res-itemName">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" class="form-control" placeholder="Item Price ($)"
+                                    id="res-itemPrice">
+                            </div>
+                            <div class="col-6 mt-4">
+                                <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Category</label> -->
+                                <select class="custom-select mr-sm-2" id="res-categoryFood">
+                                    <option selected>Category</option>
+                                    <option value="Pakistani">Pakistani</option>
+                                    <option value="Chinese">Chinese</option>
+                                    <option value="Western">Western Food</option>
+                                </select>
+                            </div>
+                            <div class="col-6 mt-4">
+                                <select class="custom-select mr-sm-2" id="res-deliveryType">
+                                    <option selected>Delivery Type</option>
+                                    <option value="Free">Free</option>
+                                    <option value="Paid">Paid</option>
+                                </select>
+                            </div>
+                            <div class="col-8 form-group mt-4">
+                                <label for="exampleFormControlFile1">Add Image of the item</label>
+                                <input type="file" class="form-control-file" id="res-imageItem">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="addItemRes()">Add Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal End  -->
+
+
+
+    <!-- Card Item Start -->
+    <div class="container ">
+        <div class="row" id="card-row">
+            <!-- <div class="col-4">
+                <div class="card mt-5" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Item Name</h5>
+                        <p class="card-text">Item Details</p>
+                        <a href="#" class="btn btn-primary">Delete Item</a>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+
+    </div>
+    <!-- Card Item End -->
+
+
+    <!-- Logout Start  -->
+    <div class="container mb-6">
+        <button type="button" onclick="logoutRest()" class="btn btn-warning">Logout</button>
+    </div>
+
+    <!-- Logout End  -->
+
+
+    <!-- Items Ordered Start  -->
+
+    <div class="container mt-5 mb-6">
+        <h1 style="text-align:center;">Your Orders</h1>
+        <div class="row" id="itemsToDeliverRow">
+            <!-- <div class="col-3">
+                <div class="card mb-3" style="max-width: 400px;">
+                    <div class="row no-gutters itemOrdered-list">
+                        <div class="col-md-4">
+                            <img src="" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Item Name</h5>
+                                <p>Ordered by: </p>
+                                <p class="card-text">Item Price</p>
+                                <p class="card-text">Delivery Type:</p>
+                                <button type="button" class="btn btn-success" onclick="deliverItem()">Deliver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+
+    </div>
+    <!-- Items Ordered End -->
+
+
+    <!-- <h1>Restaurant Orders</h1>
+    <div class="div" id="itemNameName">
+
+    </div> -->
+
+
+
+<!-- Items Delivered Start  -->
+
+<div class="container mt-5 mb-6">
+    <h1 style="text-align:center;">Items Delivered</h1>
+    <div class="row" id="deliverItemsRow">
+        <!-- <div class="col-3">
+            <div class="card mb-3" style="max-width: 400px;">
+                <div class="row no-gutters itemOrdered-list">
+                    <div class="col-md-4">
+                        <img src="" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Item Name</h5>
+                            <p>Ordered by: </p>
+                            <p class="card-text">Item Price</p>
+                            <p class="card-text">Delivery Type:</p>
+                            <button type="button" class="btn btn-success" onclick="deliverItem()">Deliver</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+
+</div>
+<!-- Items Delivered End -->
+
+
+
+
+
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAiekTlIhvM_fIu9_2dsRat4WCSwGVXCqU",
+            authDomain: "fooddeliveryappfinal.firebaseapp.com",
+            projectId: "fooddeliveryappfinal",
+            storageBucket: "fooddeliveryappfinal.appspot.com",
+            messagingSenderId: "100603800503",
+            appId: "1:100603800503:web:003690575cfba1b52c5632"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/restDashboard.js"></script>
+
+</body>
+
+</html>

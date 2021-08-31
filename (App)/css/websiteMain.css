@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-fluid {
+    padding: 0px !important;
+}
+
+.top-top {
+    letter-spacing: 3px;
+    text-size-adjust: 100%;
+    /* font-size: 5.6em; */
+    font-size: 7vw;
+    font-weight: 200;
+    color: #425664;
+    overflow-x: hidden;
+}
+
+.main-carousel {
+    overflow-x: hidden;
+}
+
+.img-carousel {
+    /* height: 600px; */
+}
+
+.navbar .navbar-nav {
+   
+    
+}
+
+.navbar .navbar-collapse {
+}
+
+.font-awesome {
+    color: #DEC79B;
+    font-size: 1.2em !important;
+    margin: 0.5em;
+    transition: all .2s ease-in-out;
+}
+
+.font-awesome:hover {
+    cursor: pointer;
+    transform: scale(1.2) !important;
+    font-weight: bold;
+}
